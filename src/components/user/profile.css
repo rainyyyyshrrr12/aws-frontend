@@ -1,0 +1,178 @@
+.profile-page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  color: whitesmoke;
+  width: 100%;
+}
+
+.user-profile-section {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10px;
+}
+
+.user-repo-section {
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-name {
+  margin: 10px 20px 10px 10px;
+}
+
+.profile-image {
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: grey;
+}
+
+.follow-btn {
+  background-color: #20272d;
+  width: 250px;
+  margin: 10px auto;
+  height: 40px;
+  border-radius: 10px;
+  color: whitesmoke;
+  border: 1px solid #3d3d3d;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.follow-btn:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+.follower {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 30px;
+  gap: 10px;
+  margin: 10px auto;
+}
+
+.repo-card-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.repo {
+  border: 0.5px solid grey;
+  border-radius: 10px;
+  width: 400px;
+  height: 210px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.repo-name {
+  cursor: pointer;
+  color: #408ced;
+  font-size: 20px;
+}
+
+.repo-name:hover {
+  text-decoration: underline;
+}
+
+.description {
+  color: grey;
+  font-size: 15px;
+}
+
+/* Navigation Tabs */
+.profile-nav {
+  border-bottom: 1px solid #3d3d3d;
+  padding: 0 20px;
+  background-color: #0d1117;
+}
+
+.nav-tab {
+  padding: 12px 16px;
+  background-color: transparent;
+  color: #8b949e;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: white;
+  background-color: rgba(177, 186, 196, 0.12);
+}
+
+.nav-tab.active {
+  color: white;
+  border-bottom: 2px solid #f78166;
+}
+
+/* Logout Button */
+#logout {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  padding: 10px 20px;
+  background-color: #238636;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+#logout:hover {
+  background-color: #2ea043;
+  border: 1px solid white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 750px) {
+  .repo {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .user-profile-section {
+    margin: auto;
+  }
+  
+  .profile-page-wrapper {
+    display: block;
+  }
+  
+  .profile-nav {
+    padding: 0 10px;
+  }
+  
+  .nav-tab {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  #logout {
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
