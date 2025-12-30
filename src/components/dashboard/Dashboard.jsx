@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./dashboard.css";
 import Navbar from "../Navbar";
+import API_BASE_URL from "../../config";
 
 const Dashboard = () => {
   const [repositories, setRepositories] = useState([]);
@@ -9,35 +10,34 @@ const Dashboard = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId");
+  if (!userId) return;
 
-    const fetchRepositories = async () => {
-  try {
-    const response = await fetch(
-      `http://localhost:3002/repo/user/${userId}`
-    );
-    const data = await response.json();
-    setRepositories(data); // ✅ FIX
-  } catch (err) {
-    console.error("Error while fetching repositories: ", err);
-  }
-};
+  const fetchRepositories = async () => {
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/repo/user/${userId}`
+      );
+      const data = await response.json();
+      setRepositories(data); // same as before
+    } catch (err) {
+      console.error("Error while fetching repositories:", err);
+    }
+  };
 
+  const fetchSuggestedRepositories = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/repo/all`);
+      const data = await response.json();
+      setSuggestedRepositories(data);
+    } catch (err) {
+      console.error("Error while fetching repositories:", err);
+    }
+  };
 
-    const fetchSuggestedRepositories = async () => {
-      try {
-        const response = await fetch(`http://localhost:3002/repo/all`);
-        const data = await response.json();
-        setSuggestedRepositories(data);
-        console.log(suggestedRepositories);
-      } catch (err) {
-        console.error("Error while fecthing repositories: ", err);
-      }
-    };
-
-    fetchRepositories();
-    fetchSuggestedRepositories();
-  }, []);
+  fetchRepositories();
+  fetchSuggestedRepositories();
+}, []);
 
   useEffect(() => {
     if (searchQuery == "") {

@@ -5,6 +5,7 @@ import "./profile.css";
 import Navbar from "../Navbar";
 import HeatMapProfile from "./HeatMap";
 import { useAuth } from "../../authContext";
+import API_BASE_URL from "../../config";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -12,22 +13,27 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const { setCurrentUser } = useAuth();
 
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      const userId = localStorage.getItem("userId");
-      if (userId) {
-        try {
-          const response = await axios.get(
-            `http://localhost:3002/userProfile/${userId}`
-          );
-          setUserDetails(response.data);
-        } catch (err) {
-          console.error("Cannot fetch user details: ", err);
-        }
-      }
-    };
-    fetchUserDetails();
-  }, []);
+
+
+useEffect(() => {
+  const fetchUserDetails = async () => {
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) return;
+
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}/userProfile/${userId}`
+      );
+      setUserDetails(response.data);
+    } catch (err) {
+      console.error("Cannot fetch user details:", err);
+    }
+  };
+
+  fetchUserDetails();
+}, []);
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");
