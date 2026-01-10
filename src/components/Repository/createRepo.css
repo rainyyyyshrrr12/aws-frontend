@@ -1,0 +1,90 @@
+.create-repo {
+  min-height: 100vh;
+  background-color: #0c1116;
+  color: #f1f6fd;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 70px;
+  font-family: "Asap", sans-serif;
+}
+
+/* Wrapper to align heading + form together */
+.create-repo-container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.create-repo h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+/* Card */
+.create-repo form {
+  background-color: #161a23;
+  padding: 28px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.create-repo input,
+.create-repo textarea,
+.create-repo select {
+  background-color: #0c1116;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 0.95rem;
+  color: #f1f6fd;
+  outline: none;
+}
+
+.create-repo input::placeholder,
+.create-repo textarea::placeholder {
+  color: #8b949e;
+}
+
+.create-repo textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.create-repo input:focus,
+.create-repo textarea:focus,
+.create-repo select:focus {
+  border-color: #2f81f7;
+}
+
+.create-repo select {
+  cursor: pointer;
+}
+
+/* Button */
+.create-repo button {
+  margin-top: 10px;
+  background-color: #238636;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.create-repo button:hover {
+  background-color: #2ea043;
+}
+
+/* Mobile */
+@media screen and (max-width: 540px) {
+  .create-repo-container {
+    padding: 0 16px;
+  }
+}
